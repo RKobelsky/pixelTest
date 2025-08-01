@@ -17,7 +17,7 @@ function addToCart(name, price) {
     } else {
         cart[name] = { price, quantity: 1 };
     }
-    fbq('track', 'AddToCart');
+    fbq('track', 'AddToCart', {value: 100.0, currency: 'USD'});
     updateCartCount();
     showNotification(`Added ${name} to cart!`);
     saveCartToLocalStorage();
