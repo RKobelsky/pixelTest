@@ -17,6 +17,7 @@ function addToCart(name, price) {
     } else {
         cart[name] = { price, quantity: 1 };
     }
+    fbq('track', 'AddToCart');
     updateCartCount();
     showNotification(`Added ${name} to cart!`);
     saveCartToLocalStorage();
