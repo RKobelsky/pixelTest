@@ -11,13 +11,18 @@ function updateCartCount() {
 }
 
 // Function to add an item to the cart
-function addToCart(name, price) {
+function addToCart(name, price, contentID) {
     if (cart[name]) {
         cart[name].quantity++;
     } else {
         cart[name] = { price, quantity: 1 };
     }
-    fbq('track', 'AddToCart', {value: 100.0, currency: 'USD'});
+    fbq('track', 'AddToCart', {
+      value: 100.0,
+      currency: 'USD',
+      content_ids: [contentID],
+      content_type: 'product'
+    });
     updateCartCount();
     showNotification(`Added ${name} to cart!`);
     saveCartToLocalStorage();
