@@ -18,7 +18,7 @@ function addToCart(name, price, contentID) {
         cart[name] = { price, quantity: 1 };
     }
     fbq('track', 'AddToCart', {
-      value: 100.0,
+      value: price,
       currency: 'USD',
       content_ids: [contentID],
       content_type: 'product'
